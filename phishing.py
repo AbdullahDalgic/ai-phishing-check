@@ -29,7 +29,7 @@ feature_extraction = TfidfVectorizer(min_df = 1, stop_words='english', lowercase
 X_train_features = feature_extraction.fit_transform(X_train)
 X_test_features = feature_extraction.transform(X_test)
 
-# convert Y_train and Y_test values as integers
+# Y_train ve Y_test değerlerini tam sayılara dönüştürün
 Y_train = Y_train.astype('int')
 Y_test = Y_test.astype('int')
 
@@ -79,17 +79,21 @@ else:
     model = LogisticRegression()
     model.fit(X_train_features, Y_train)
 
-    # prediction on training data
+    # eğitim verilerine ilişkin tahmin
     prediction_on_training_data = model.predict(X_train_features)
     accuracy_on_training_data = accuracy_score(Y_train, prediction_on_training_data)
     print(Fore.RESET, "")
     print('Eğitim verilerinin doğruluğu : ', accuracy_on_training_data)
 
 
-    # prediction on test data
+    # test verilerine ilişkin tahmin
     prediction_on_test_data = model.predict(X_test_features)
     accuracy_on_test_data = accuracy_score(Y_test, prediction_on_test_data)
     print('Test verilerinin doğruluğu : ', accuracy_on_test_data)
+
+    # klasör yoksa oluştur
+    if not os.path.exists('model'):
+        os.makedirs('model')
 
     joblib.dump(model, model_file)
     print(Fore.GREEN, "Model dosyası eğitildi.")
