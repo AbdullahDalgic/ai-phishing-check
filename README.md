@@ -2,6 +2,10 @@
 
 AI Phishing Check, Python dili kullanılarak geliştirilmiş bir **Yapay Zeka** projesidir. Bu proje, phishing saldırılarını tespit etmek amacıyla eğitilmiş bir yapay zeka modeli içerir.
 
+## Ekran Görüntüsü
+
+![Ekran Görüntüsü 1](screenshoots/phishing.png)
+
 ## Kurulum
 
 - Projeyi yerel bilgisayarınıza klonlayın:
